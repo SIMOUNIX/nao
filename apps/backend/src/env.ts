@@ -11,7 +11,7 @@ const envSchema = z.object({
 		.enum(['true', 'false'])
 		.optional()
 		.transform((val) => val === 'true'),
-	BETTER_AUTH_SECRET: z.string().min(1).or(z.literal('').optional()), // try to make min 1 if set and optional otherwise
+	BETTER_AUTH_SECRET: z.string().min(20).or(z.literal('').optional()), // try to make min 1 if set and optional otherwise
 	TRUSTED_ORIGINS: z
 		.string()
 		.optional()
