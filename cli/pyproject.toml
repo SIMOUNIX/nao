@@ -37,6 +37,9 @@ dependencies = [
     "anthropic>=0.76.0",
 ]
 
+[project.optional-dependencies]
+dev = ["pytest-cov"]
+
 [project.scripts]
 nao = "nao_core.main:app"
 
