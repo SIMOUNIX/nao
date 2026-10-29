@@ -93,7 +93,13 @@ function isRunningAsRoot(): boolean {
 }
 
 function findChromePath(): string {
-	const candidates = [...LINUX_BROWSER_PATHS, ...MACOS_BROWSER_PATHS, ...WINDOWS_BROWSER_PATHS];
+	const candidates = [
+		process.env.PUPPETEER_EXECUTABLE_PATH,
+		process.env.CHROME_PATH,
+		...LINUX_BROWSER_PATHS,
+		...MACOS_BROWSER_PATHS,
+		...WINDOWS_BROWSER_PATHS,
+	];
 
 	for (const candidate of candidates) {
 		if (candidate && existsSync(candidate)) {
